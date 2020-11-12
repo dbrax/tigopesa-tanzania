@@ -41,7 +41,7 @@ If you discover any security related issues, please email epmnzava@gmail.com ins
 
 ## Credits
 
-- [Emmanuel Mnzava](https://github.com/epmnzava)
+- [Emmanuel Mnzava](https://github.com/dbrax)
 - [All Contributors](../../contributors)
 
 ## License
