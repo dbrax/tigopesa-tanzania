@@ -9,6 +9,9 @@ This is where your description should go. Try and limit it to a paragraph or two
 
 ## Installation
 
+- Laravel Version: 5.8.36
+- PHP Version: 8.0
+
 You can install the package via composer:
 
 ```bash
@@ -65,7 +68,7 @@ namespace App\Http\Controllers;
 use Tigosecure;
 
 use Illuminate\Http\Request;
-class Transaction Controller extends Controller
+class TransactionController extends Controller
 {
 //
 
