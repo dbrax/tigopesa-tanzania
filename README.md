@@ -15,6 +15,42 @@ You can install the package via composer:
 composer require epmnzava/tigosecure
 ```
 
+# Update your config (for Laravel 5.4 and below)
+Add the service provider to the providers array in config/app.php:
+```
+Epmnzava\Tigosecure\TigosecureServiceProvider::class
+```
+Add the facade to the aliases array in config/app.php:
+```
+'Tigosecure'=>\Epmnzava\Tigosecure\TigosecureFacade::class,
+```
+
+# Publish the package configuration (for Laravel 5.4 and below)
+Publish the configuration file and migrations by running the provided console command:
+```
+php artisan vendor:publish --provider="Epmnzava\Tigosecure\TigosecureServiceProvider"
+```
+### Environmental Variables
+TIGO_CLIENT_ID ` your provided tigopesa client id `<br/>
+
+TIGO_CLIENT_SECRET ` your provided tigopesa client secret `<br/>
+
+TIGO_API_URL ` your provided tigopesa api url  `<br/>
+
+TIGO_PIN ` your provided tigopesa pin number `<br/>
+
+TIGO_ACCOUNT_NUMBER ` your provided tigopesa  account number `<br/>
+
+TIGO_ACCOUNT_ID ` your provided tigopesa account id  `<br/>
+
+TIGO_REDIRECT    ` your  redirect url `<br/>
+
+TIGO_CALLBACK    ` your  callback url `<br/>
+
+APP_CURRENCY_CODE ` currency put TZS for Tanzanian Shillings `<br/>
+
+LANG ` language code en for english and sw for swalihi`<br/>
+
 ## Usage
 
 ``` php
@@ -42,6 +78,7 @@ If you discover any security related issues, please email epmnzava@gmail.com ins
 ## Credits
 
 - [Emmanuel Mnzava](https://github.com/dbrax)
+- [Victor Deo Kapten](https://github.com/vdkapten)
 - [All Contributors](../../contributors)
 
 ## License
