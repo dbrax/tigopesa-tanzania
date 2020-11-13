@@ -53,8 +53,34 @@ LANG ` language code en for english and sw for swalihi`<br/>
 
 ## Usage
 
+This release does not come with database tables for transaction or payments you need to create then  After you have filled all necessary variables , providers and facases this is how the package can be used.
+
+On your controller 
+
 ``` php
-// Usage description here
+<?php
+
+namespace App\Http\Controllers;
+
+use Tigosecure;
+
+use Illuminate\Http\Request;
+class Transaction Controller extends Controller
+{
+//
+
+    public function customer_transaction(){
+
+        
+        //Tigosecure::make_payment("customerfirstname","customerlastname","customerlastname","amount","transaction_id");
+        $tigopesa_response=Tigosecure::make_payment("jacob","laizer","jacob@primeware.co.tz","3000","98778835628");
+
+       
+     return redirect($tigopesa_response->redirectUrl);
+
+    }
+
+
 ```
 
 ### Testing
