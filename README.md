@@ -1,4 +1,4 @@
-# Very short description of the package
+# Package Description
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/epmnzava/tigosecure.svg?style=flat-square)](https://packagist.org/packages/epmnzava/tigosecure)
 [![Build Status](https://img.shields.io/travis/epmnzava/tigosecure/master.svg?style=flat-square)](https://travis-ci.org/epmnzava/tigosecure)
