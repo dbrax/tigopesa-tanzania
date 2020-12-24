@@ -17,11 +17,12 @@ You can install the package via composer:
 composer require epmnzava/tigosecure
 ```
 
-# Update your config (for Laravel 5.4 and below)
+## Update your config (for Laravel 5.4 and below)
+
 Add the service provider to the providers array in config/app.php:
 
 ```php
-Epmnzava\Tigosecure\TigosecureServiceProvider::class
+Epmnzava\Tigosecure\TigosecureServiceProvider::class,
 ```
 Add the facade to the aliases array in config/app.php:
 
@@ -29,7 +30,7 @@ Add the facade to the aliases array in config/app.php:
 'Tigosecure' =>\Epmnzava\Tigosecure\TigosecureFacade::class,
 ```
 
-# Publish the package configuration (for Laravel 5.4 and below)
+## Publish the package configuration (for Laravel 5.4 and below)
 
 Publish the configuration file and migrations by running the provided console command:
 
