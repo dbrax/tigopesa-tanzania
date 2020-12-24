@@ -1,9 +1,12 @@
 {
     "name": "epmnzava/tigosecure",
-    "description": "This is a laravel package for intergration with tigopesa online api",
+    "description": "This is a laravel package for integration with TigoPesa online API",
     "keywords": [
         "epmnzava",
-        "tigosecure"
+        "tigosecure",
+        "tigo",
+        "mobilemoney",
+        "tanzania"
     ],
     "homepage": "https://github.com/dbrax/tigopesa-tanzania.git",
     "license": "MIT",
