@@ -1,4 +1,4 @@
-# Package Description
+# Tigopesa Secure API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/epmnzava/tigosecure.svg?style=flat-square)](https://packagist.org/packages/epmnzava/tigosecure)
 [![Total Downloads](https://img.shields.io/packagist/dt/epmnzava/tigosecure.svg?style=flat-square)](https://packagist.org/packages/epmnzava/tigosecure)
@@ -8,8 +8,8 @@ This package is created to help developers intergrate with Tigopesa Tanzania sec
 
 ## Installation
 
-- Laravel Version: 8.*
-- PHP Version: 7.2
+- Laravel Version: >= 8.*
+- PHP Version: >= 7.2
 
 You can install the package via composer:
 
@@ -17,45 +17,51 @@ You can install the package via composer:
 composer require epmnzava/tigosecure
 ```
 
-# Update your config (for Laravel 5.4 and below)
+## Update your config (for Laravel 5.4 and below)
+
 Add the service provider to the providers array in config/app.php:
-```
-Epmnzava\Tigosecure\TigosecureServiceProvider::class
+
+```php
+Epmnzava\Tigosecure\TigosecureServiceProvider::class,
 ```
 Add the facade to the aliases array in config/app.php:
-```
-'Tigosecure'=>\Epmnzava\Tigosecure\TigosecureFacade::class,
+
+```php
+'Tigosecure' =>\Epmnzava\Tigosecure\TigosecureFacade::class,
 ```
 
-# Publish the package configuration (for Laravel 5.4 and below)
+## Publish the package configuration (for Laravel 5.4 and below)
+
 Publish the configuration file and migrations by running the provided console command:
-```
+
+```bash
 php artisan vendor:publish --provider="Epmnzava\Tigosecure\TigosecureServiceProvider"
 ```
 ### Environmental Variables
-TIGO_CLIENT_ID ` your provided tigopesa client id `<br/>
 
-TIGO_CLIENT_SECRET ` your provided tigopesa client secret `<br/>
+- TIGO_CLIENT_ID ` your provided tigopesa client id `<br/>
 
-TIGO_API_URL ` your provided tigopesa api url  `<br/>
+- TIGO_CLIENT_SECRET ` your provided tigopesa client secret `<br/>
 
-TIGO_PIN ` your provided tigopesa pin number `<br/>
+- TIGO_API_URL ` your provided tigopesa api url  `<br/>
 
-TIGO_ACCOUNT_NUMBER ` your provided tigopesa  account number `<br/>
+- TIGO_PIN ` your provided tigopesa pin number `<br/>
 
-TIGO_ACCOUNT_ID ` your provided tigopesa account id  `<br/>
+- TIGO_ACCOUNT_NUMBER ` your provided tigopesa  account number `<br/>
 
-TIGO_REDIRECT    ` your  redirect url `<br/>
+- TIGO_ACCOUNT_ID ` your provided tigopesa account id  `<br/>
 
-TIGO_CALLBACK    ` your  callback url `<br/>
+- TIGO_REDIRECT    ` your  redirect url `<br/>
 
-APP_CURRENCY_CODE ` currency put TZS for Tanzanian Shillings `<br/>
+- TIGO_CALLBACK    ` your  callback url `<br/>
 
-LANG ` language code en for english and sw for swalihi`<br/>
+- APP_CURRENCY_CODE ` currency put TZS for Tanzanian Shillings `<br/>
+
+- LANG ` language code  en for english and sw for swalihi`<br/>
 
 ## Usage
 
-This release does not come with database tables for transaction or payments you need to create then  After you have filled all necessary variables , providers and facases this is how the package can be used.
+This release does not come with database tables for transaction or payments you need to create then  After you have filled all necessary variables , providers and facades this is how the package can be used.
 
 On your controller 
 
@@ -69,19 +75,17 @@ use Tigosecure;
 use Illuminate\Http\Request;
 class TransactionController extends Controller
 {
-//
 
     public function customer_transaction(){
 
         
-        //Tigosecure::make_payment("customerfirstname","customerlastname","customerlastname","amount","transaction_id");
+        // Tigosecure::make_payment("customerfirstname","customerlastname","customerlastname","amount","transaction_id");
         $tigopesa_response=Tigosecure::make_payment("jacob","laizer","jacob@primeware.co.tz","3000","98778835628");
 
        
      return redirect($tigopesa_response->redirectUrl);
 
     }
-
 
 ```
 

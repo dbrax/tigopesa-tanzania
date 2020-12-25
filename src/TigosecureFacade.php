@@ -4,9 +4,7 @@ namespace Epmnzava\Tigosecure;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \Epmnzava\Tigosecure\Skeleton\SkeletonClass
- */
+
 class TigosecureFacade extends Facade
 {
     /**
