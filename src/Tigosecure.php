@@ -14,39 +14,42 @@ class Tigosecure
 {
 
 
-    public  string $base_url, $issuedToken, $customer_firstname, $customer_lastname, $customer_email, $amount, $refecence_id;
+    public string $base_url, $issuedToken, $customer_firstname, $customer_lastname, $customer_email, $amount, $reference_id;
 
     /**
-     * 
-     * This function gets access token from tigo web service
-     * 
+     *  access_token
      */
     public function access_token()
     {
 
-        //consume util class that makes api calls to tigopesa webservice
         $api = new TigoUtil();
+
+        $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
+        $this->issuedToken = $tokenArray->accessToken;
 
         $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
         $this->issuedToken = $tokenArray->accessToken;
     }
 
     /**
-     * 
-     * This function handles all payment requests takes in name ,lastname , amount and reference id or transaction id
-     * 
+     * make_payment
+     *
+     * @param $customer_firstname
+     * @param $customer_lastname
+     * @param $customer_email
+     * @param $amount
+     * @param $reference_id
+     * @return mixed
      */
-    public function make_payment($customer_firstname, $customer_lastname, $customer_email, $amount, $refecence_id)
+    public function make_payment($customer_firstname, $customer_lastname, $customer_email, $amount, $reference_id)
     {
 
         $this->access_token();
         $api = new TigoUtil();
         $base_url = config('tigosecure.api_url');
-        $response = $api->makePaymentRequest($base_url, $this->issuedToken, $amount, $refecence_id, $customer_firstname, $customer_lastname, $customer_email);
+        $response = $api->makePaymentRequest($base_url, $this->issuedToken, $amount, $reference_id, $customer_firstname, $customer_lastname, $customer_email);
 
-        $array_response = json_decode($response);
-
-        return $array_response;
+        return json_decode($response);
     }
 
     /**
@@ -54,6 +57,7 @@ class Tigosecure
      * @param int $length
      *
      * @return string
+     * @throws \Exception
      */
     public function random_reference($prefix = 'PESAPAL', $length = 15)
     {

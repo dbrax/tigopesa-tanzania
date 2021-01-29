@@ -1,9 +1,12 @@
 {
     "name": "epmnzava/tigosecure",
-    "description": "This is a laravel package for intergration with tigopesa online api",
+    "description": "This is a laravel package for integration with TigoPesa online API",
     "keywords": [
         "epmnzava",
-        "tigosecure"
+        "tigosecure",
+        "tigo",
+        "mobilemoney",
+        "tanzania"
     ],
     "homepage": "https://github.com/dbrax/tigopesa-tanzania.git",
     "license": "MIT",
@@ -15,7 +18,6 @@
             "role": "Developer"
         }
     ],
-
     "autoload": {
         "psr-4": {
             "Epmnzava\\Tigosecure\\": "src"
@@ -29,7 +31,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
@@ -46,6 +47,8 @@
     },
     "require": {
         "illuminate/support": "^6.0|^7.0|^8.0|^8.14",
-        "orchestra/testbench": "^6.4"
+        "orchestra/testbench": "^6.4",
+        "ext-json": "*",
+        "ext-curl": "*"
     }
 }
