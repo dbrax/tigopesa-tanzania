@@ -17,8 +17,11 @@ class TigoUtil
   // Build your next great package.
 
 
-
-
+    /**
+     * @param string $base_url
+     * @return bool|string
+     * Function that gets access_token
+     */
   public   function get_access_token(string $base_url)
   {
 
@@ -51,8 +54,16 @@ class TigoUtil
   }
 
 
-
-
+    /**
+     * @param $amount
+     * @param $refecence_id
+     * @param $customer_firstname
+     * @param $custormer_lastname
+     * @param $customer_email
+     * @return string
+     *
+     * funciton that creates payment authentication json
+     */
 
   public function createPaymentAuthJson($amount, $refecence_id, $customer_firstname, $custormer_lastname, $customer_email)
   {
@@ -107,6 +118,18 @@ class TigoUtil
   }
 
 
+    /**
+     * @param string $base_url
+     * @param $issuedToken
+     * @param $amount
+     * @param $refecence_id
+     * @param $customer_firstname
+     * @param $custormer_lastname
+     * @param $customer_email
+     * @return bool|string
+     *
+     * Tigo secure payment call function using endpoint /v1/tigo/payment-auth/authorize
+     */
 
   public function makePaymentRequest(string $base_url, $issuedToken, $amount, $refecence_id, $customer_firstname, $custormer_lastname, $customer_email)
   {
