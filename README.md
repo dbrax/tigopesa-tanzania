@@ -8,8 +8,8 @@ This package is created to help developers intergrate with Tigopesa Tanzania sec
 
 ## Installation
 
-- Laravel Version: >= 8.*
-- PHP Version: >= 7.2
+- Laravel Version: >= 7.0
+- PHP Version: 7.2 | 8.0
 
 You can install the package via composer:
 
