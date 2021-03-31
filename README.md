@@ -110,7 +110,6 @@ If you discover any security related issues, please email epmnzava@gmail.com ins
 ## Credits
 
 - [Emmanuel Mnzava](https://github.com/dbrax)
-- [Victor Deo Kapten](https://github.com/vdkapten)
 - [All Contributors](../../contributors)
 
 ## License
