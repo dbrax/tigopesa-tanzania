@@ -96,14 +96,14 @@ class TigoUtil
   "language": "' . config('tigosecure.lang') . '",
   "terminalId": "",
   "originPayment": {
-    "amount": "300.00",
+    "amount": "'.$amount.'",
     "currencyCode": "' . config('tigosecure.currency_code') . '",
     "tax": "0.00",
     "fee": "0.00"
   },
   "exchangeRate": "1",
   "LocalPayment": {
-    "amount": "300.00",
+    "amount": "'.$amount.'",
     "currencyCode": "' . config('tigosecure.currency_code') . '"
   },
   "transactionRefId": "' . $refecence_id . '"
