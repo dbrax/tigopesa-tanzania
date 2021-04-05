@@ -27,8 +27,8 @@ class Tigosecure
         $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
         $this->issuedToken = $tokenArray->accessToken;
 
-        $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
-        $this->issuedToken = $tokenArray->accessToken;
+     //   $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
+      //  $this->issuedToken = $tokenArray->accessToken;
     }
 
     /**

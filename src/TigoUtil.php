@@ -109,7 +109,6 @@ class TigoUtil
   "transactionRefId": "' . $refecence_id . '"
 }';
 
-    return $paymentJson;
 
 
     Log::info('TigoUtil::createPaymentAuthJson Token=' . $paymentJson);
