@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":111:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:51:"Epmnzava\Tigosecure\Tests\ExampleTest::true_is_true";d:0.857;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":111:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:51:"Epmnzava\Tigosecure\Tests\ExampleTest::true_is_true";d:0.762;}}}
