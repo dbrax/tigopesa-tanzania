@@ -1,3 +1,4 @@
+<img src="https://github.com/dbrax/tigopesa-tanzania/blob/master/Tigopesa%20Secure%20API.jpeg">
 # Tigopesa Secure API
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/epmnzava/tigosecure.svg?style=flat-square)](https://packagist.org/packages/epmnzava/tigosecure)
