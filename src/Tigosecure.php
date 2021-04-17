@@ -38,7 +38,7 @@ class Tigosecure
 
         $api = new TigoUtil($client_id, $client_secret, $base_url);
 
-        $tokenArray = json_decode($api->getToken());
+        $tokenArray = json_decode($api->get_access_token());
         $this->issuedToken = $tokenArray->accessToken;
     }
 
@@ -58,7 +58,7 @@ class Tigosecure
         $customer_email,
         $amount,
         $reference_id
-    ): array {
+    ) {
 
         $base_url = config('tigosecure.api_url');
         $client_secret = config('tigosecure.secret');

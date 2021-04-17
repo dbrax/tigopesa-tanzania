@@ -11,8 +11,10 @@
 namespace Epmnzava\Tigosecure;
 
 use Epmnzava\Tigosecure\Configs\V1\TigoConfigs;
+use Exception;
 use GuzzleHttp\Client;
 use Log;
+use Throwable;
 
 class TigoUtil extends TigoConfigs
 {
@@ -30,34 +32,6 @@ class TigoUtil extends TigoConfigs
     $this->base_url = $base_url;
   }
 
-
-
-  /**
-   * @param string $base_url
-   * @return bool|string
-   * Function that gets access_token
-   */
-  public   function get_access_token()
-  {
-
-    $access_token_url = $this->base_url . $this->ACCESS_TOKEN_ENDPOINT;
-
-    $data = [
-      'client_id' => config('tigosecure.client_id'),
-      'client_secret' => config('tigosecure.secret')
-    ];
-
-    $ch = curl_init($access_token_url);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
-    curl_setopt($ch, CURLOPT_URL, $access_token_url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    return $response;
-  }
 
 
   /**
@@ -140,7 +114,7 @@ class TigoUtil extends TigoConfigs
   public function makePaymentRequest($issuedToken, $amount, $refecence_id, $customer_firstname, $custormer_lastname, $customer_email)
   {
 
-    $paymentAuthUrl = $this->base_url . $this->PAYMENT_AUTHORIZATION_ENDPOINT;
+    $paymentAuthUrl = $this->base_url . self::PAYMENT_AUTHORIZATION_ENDPOINT;
     $ch = curl_init($paymentAuthUrl);
     curl_setopt_array($ch, array(
       CURLOPT_URL => $paymentAuthUrl,
@@ -165,23 +139,30 @@ class TigoUtil extends TigoConfigs
     return $response;
   }
 
-  public function getToken()
+  public function get_access_token()
   {
-    $access_token_url = $this->base_url . $this->ACCESS_TOKEN_ENDPOINT;
+    $access_token_url = $this->base_url . self::ACCESS_TOKEN_ENDPOINT;
 
     $data = [
       'client_id' => config('tigosecure.client_id'),
       'client_secret' => config('tigosecure.secret')
     ];
+//Will have to add try catch
+    //try{
+  //}
+   // catch(Throwable $e){
+ //     report($e);
+ //     return json_encode(["message"=>"Error Found ".$e,"status"=>500]);
+ //   }
 
     $client = new  Client;
     $response = $client->request('POST', $access_token_url, [
       'form_params' => $data
     ]);
-    return $response;
+    return $response->getBody();
+
+        
   }
 
-  public function paymentRequest()
-  {
-  }
+
 }
