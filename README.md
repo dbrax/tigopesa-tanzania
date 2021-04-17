@@ -9,8 +9,14 @@ This package is created to help developers intergrate with Tigopesa Tanzania sec
 
 ## Installation
 
-- Laravel Version: >= 7.0
-- PHP Version: 7.2 | 8.0
+
+## Version Matrix
+
+Version | Laravel   | PHP Version
+------- | --------- | ------------
+1.0.0   | 8.0       | >= 8.0 
+1.0.1   | 8.0       | >= 7.3 >= 8.0
+1.0.2   | 8.0       | >= 7.2.5 >= 8.0
 
 You can install the package via composer:
 
@@ -85,6 +91,39 @@ class TransactionController extends Controller
 
        
      return redirect($tigopesa_response->redirectUrl);
+
+    }
+
+```
+
+
+On your controller you can also call it through this way.
+``` php
+<?php
+
+namespace App\Http\Controllers;
+
+use BillMe;
+use Illuminate\Http\Request;
+use Epmnzava\LocationDemografia\Models\Country;
+use Epmnzava\LocationDemografia\Models\State;
+use Epmnzava\Bulksms\Bulksms;
+use Epmnzava\Telerivet\Telerivet;
+use Epmnzava\Tigosecure\Tigosecure;
+use Spatie\SslCertificate\SslCertificate;
+use Illuminate\Http\Request;
+
+class TransactionController extends Controller
+{
+
+    public function customer_transaction(){
+
+        
+         $payment=new Tigosecure;
+        $response=$payment->make_payment("emmanuel","mnzava","epmnzava@gmail.com",4000,"48fhldplofhf".rand(5,100));
+
+       
+        return redirect($response->redirectUrl);
 
     }
 
