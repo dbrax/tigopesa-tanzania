@@ -6,7 +6,8 @@
         "tigosecure",
         "tigo",
         "mobilemoney",
-        "tanzania"
+        "tanzania",
+        "tigopesa tanzania"
     ],
     "homepage": "https://github.com/dbrax/tigopesa-tanzania.git",
     "license": "MIT",
@@ -46,9 +47,10 @@
         }
     },
     "require": {
-        "illuminate/support": "^6.0|^7.0|^8.0|^8.14",
-        "orchestra/testbench": "^6.4",
+        "ext-curl": "*",
         "ext-json": "*",
-        "ext-curl": "*"
+        "guzzlehttp/guzzle": "^7.3",
+        "illuminate/support": "^6.0|^7.0|^8.0|^8.14",
+        "orchestra/testbench": "^6.4"
     }
 }

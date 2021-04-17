@@ -14,21 +14,32 @@ class Tigosecure
 {
 
 
-    public string $base_url, $issuedToken, $customer_firstname, $customer_lastname, $customer_email, $amount, $reference_id;
+    public function __construct()
+    {
+    }
+
+    public string $base_url,
+        $issuedToken,
+        $customer_firstname,
+        $customer_lastname,
+        $customer_email,
+        $amount,
+        $reference_id;
 
     /**
-     *  access_token
+     *  Fetch access_token
      */
-    public function access_token()
+    private function access_token()
     {
 
-        $api = new TigoUtil();
+        $base_url = config('tigosecure.api_url');
+        $client_secret = config('tigosecure.secret');
+        $client_id = config('tigosecure.client_id');
 
-        $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
+        $api = new TigoUtil($client_id, $client_secret, $base_url);
+
+        $tokenArray = json_decode($api->getToken());
         $this->issuedToken = $tokenArray->accessToken;
-
-     //   $tokenArray = json_decode($api->get_access_token(config('tigosecure.api_url')));
-      //  $this->issuedToken = $tokenArray->accessToken;
     }
 
     /**
@@ -41,13 +52,32 @@ class Tigosecure
      * @param $reference_id
      * @return mixed
      */
-    public function make_payment($customer_firstname, $customer_lastname, $customer_email, $amount, $reference_id)
-    {
+    public function make_payment(
+        $customer_firstname,
+        $customer_lastname,
+        $customer_email,
+        $amount,
+        $reference_id
+    ): array {
 
-        $this->access_token();
-        $api = new TigoUtil();
         $base_url = config('tigosecure.api_url');
-        $response = $api->makePaymentRequest($base_url, $this->issuedToken, $amount, $reference_id, $customer_firstname, $customer_lastname, $customer_email);
+        $client_secret = config('tigosecure.secret');
+        $client_id = config('tigosecure.client_id');
+        $this->access_token();
+
+        $api = new TigoUtil($client_id, $client_secret, $base_url);
+
+
+
+        $response = $api->makePaymentRequest(
+            $this->issuedToken,
+            $amount,
+            $reference_id,
+            $customer_firstname,
+            $customer_lastname,
+            $customer_email
+        );
+
 
         return json_decode($response);
     }
@@ -59,7 +89,7 @@ class Tigosecure
      * @return string
      * @throws \Exception
      */
-    public function random_reference($prefix = 'PESAPAL', $length = 15)
+    public function random_reference($prefix = 'TIGOPESA', $length = 15)
     {
         $keyspace = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
