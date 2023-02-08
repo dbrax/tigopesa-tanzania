@@ -49,8 +49,7 @@
     "require": {
         "ext-curl": "*",
         "ext-json": "*",
-        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/guzzle": "*",
         "illuminate/support": "^6.0|^7.0|^8.0|^8.14|^9.0",
-        "orchestra/testbench": "^6.4"
     }
 }
